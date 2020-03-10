@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="268" id="kk2-5Y-Ry3" customClass="PostCell" customModule="FirestoreDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="587" height="268"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kk2-5Y-Ry3" id="xSP-85-KbC">
+                <rect key="frame" x="0.0" y="0.0" width="587" height="268"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJT-O1-2Fb">
+                        <rect key="frame" x="10" y="8" width="567" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txM-PE-raD">
+                        <rect key="frame" x="30" y="36" width="527" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIH-Qg-hHN">
+                        <rect key="frame" x="30" y="67" width="527" height="20.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qK9-tF-lHz">
+                        <rect key="frame" x="550" y="8" width="27" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qK9-tF-lHz" firstAttribute="top" secondItem="xSP-85-KbC" secondAttribute="top" constant="8" id="0kv-kV-dTM"/>
+                    <constraint firstAttribute="trailing" secondItem="qK9-tF-lHz" secondAttribute="trailing" constant="10" id="6co-Iu-tt0"/>
+                    <constraint firstItem="qJT-O1-2Fb" firstAttribute="leading" secondItem="xSP-85-KbC" secondAttribute="leading" constant="10" id="76O-xB-myQ"/>
+                    <constraint firstItem="mIH-Qg-hHN" firstAttribute="top" secondItem="txM-PE-raD" secondAttribute="bottom" constant="10" id="CsT-G1-4At"/>
+                    <constraint firstItem="mIH-Qg-hHN" firstAttribute="leading" secondItem="xSP-85-KbC" secondAttribute="leadingMargin" constant="10" id="D7T-cG-5ZC"/>
+                    <constraint firstItem="txM-PE-raD" firstAttribute="leading" secondItem="xSP-85-KbC" secondAttribute="leadingMargin" constant="10" id="Fbj-di-b1I"/>
+                    <constraint firstItem="qK9-tF-lHz" firstAttribute="centerY" secondItem="qJT-O1-2Fb" secondAttribute="centerY" id="T8h-F9-nUH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mIH-Qg-hHN" secondAttribute="trailing" constant="10" id="TYx-4f-nbn"/>
+                    <constraint firstItem="qJT-O1-2Fb" firstAttribute="top" secondItem="xSP-85-KbC" secondAttribute="top" constant="8" id="V6Y-Nu-nJ7"/>
+                    <constraint firstItem="qJT-O1-2Fb" firstAttribute="trailing" secondItem="qK9-tF-lHz" secondAttribute="trailing" id="dGa-gl-paG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="txM-PE-raD" secondAttribute="trailing" constant="10" id="fIr-D8-XRk"/>
+                    <constraint firstItem="txM-PE-raD" firstAttribute="top" secondItem="qJT-O1-2Fb" secondAttribute="bottom" constant="10" id="m1x-4C-D7u"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="qK9-tF-lHz" id="ROE-K9-5FT"/>
+                <outlet property="postBodyLabel" destination="mIH-Qg-hHN" id="dFs-iS-7wE"/>
+                <outlet property="postTitleLabel" destination="txM-PE-raD" id="RBv-pF-3gU"/>
+                <outlet property="usernameLabel" destination="qJT-O1-2Fb" id="4Ii-lf-Exb"/>
+            </connections>
+            <point key="canvasLocation" x="21.014492753623191" y="111.83035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,4 +1,5 @@
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirestoreService {
     
@@ -38,6 +39,15 @@ class FirestoreService {
                 onCompletion(.failure(err))
             } else {
                 onCompletion(.success(()))
+            }
+        }
+    }
+    func createComment(_ comment: Comment, onCompletion: @escaping (Result<Bool, Error>) -> Void ) {
+        db.collection("comments").document(comment.uuidStr).setData(comment.fieldsDict) { (error) in
+            if let error = error {
+                onCompletion(.failure(error))
+            } else {
+                onCompletion(.success(true))
             }
         }
     }

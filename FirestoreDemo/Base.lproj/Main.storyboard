@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YUQ-VA-NnS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YUQ-VA-NnS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -175,7 +175,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K7Y-fH-sFi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Create New Post" selectedImage="pencil" catalog="system" id="bE3-Yc-NeS"/>
+                    <tabBarItem key="tabBarItem" title="Create New Post" image="pencil" catalog="system" selectedImage="pencil" id="bE3-Yc-NeS"/>
                     <connections>
                         <outlet property="bodyTextView" destination="3nX-KB-npm" id="96s-fC-FhE"/>
                         <outlet property="titleTextField" destination="cZT-bz-txj" id="l9Z-RQ-qI4"/>
@@ -233,7 +233,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NKt-AH-c4Y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Posts" selectedImage="list.dash" catalog="system" id="JgQ-SO-K9z"/>
+                    <tabBarItem key="tabBarItem" title="Posts" image="list.dash" catalog="system" selectedImage="list.dash" id="JgQ-SO-K9z"/>
                     <connections>
                         <outlet property="postsTableView" destination="QCG-nB-YbE" id="2p3-fP-yDz"/>
                     </connections>
@@ -241,6 +241,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnJ-TT-6ax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1067" y="-354"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="tsL-2N-YqU">
+            <objects>
+                <viewController storyboardIdentifier="CommentsViewController" id="J2X-O6-3f0" customClass="CommentsViewController" customModule="FirestoreDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGS-ax-kWz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m30-SG-kwb">
+                                <rect key="frame" x="0.0" y="267.5" width="414" height="594.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="125" id="GQY-jT-nKG">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GQY-jT-nKG" id="4q8-vI-6Fl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRj-uu-epf">
+                                <rect key="frame" x="10" y="54" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSI-Kn-FEH">
+                                <rect key="frame" x="10" y="85" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="leave a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1XM-lH-6FS">
+                                <rect key="frame" x="20" y="125.5" width="374" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Jlb-SM-u2H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57M-rh-b82">
+                                <rect key="frame" x="350" y="214" width="44" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="B0l-wY-n70"/>
+                                    <constraint firstAttribute="height" constant="44" id="ykY-V5-ydT"/>
+                                </constraints>
+                                <color key="tintColor" red="0.053123962310000002" green="0.0" blue="0.80995315310000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" backgroundImage="plus.bubble.fill" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCommentButtonPressed:" destination="J2X-O6-3f0" eventType="touchUpInside" id="vw4-3g-h9N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1XM-lH-6FS" firstAttribute="top" secondItem="fSI-Kn-FEH" secondAttribute="bottom" constant="20" id="3W6-yv-NVS"/>
+                            <constraint firstItem="fRj-uu-epf" firstAttribute="top" secondItem="gfi-Wd-4SX" secondAttribute="top" constant="10" id="59t-hk-khU"/>
+                            <constraint firstItem="m30-SG-kwb" firstAttribute="leading" secondItem="gfi-Wd-4SX" secondAttribute="leading" id="6mc-4s-RCS"/>
+                            <constraint firstItem="m30-SG-kwb" firstAttribute="bottom" secondItem="gfi-Wd-4SX" secondAttribute="bottom" id="7Zl-8y-gi1"/>
+                            <constraint firstItem="57M-rh-b82" firstAttribute="top" secondItem="1XM-lH-6FS" secondAttribute="bottom" constant="8" id="Fh1-g5-54p"/>
+                            <constraint firstItem="fRj-uu-epf" firstAttribute="leading" secondItem="gfi-Wd-4SX" secondAttribute="leading" constant="10" id="GIB-kX-5UI"/>
+                            <constraint firstItem="1XM-lH-6FS" firstAttribute="leading" secondItem="gfi-Wd-4SX" secondAttribute="leading" constant="20" id="Mor-SC-7BM"/>
+                            <constraint firstItem="gfi-Wd-4SX" firstAttribute="trailing" secondItem="fSI-Kn-FEH" secondAttribute="trailing" constant="10" id="bBq-nq-kEq"/>
+                            <constraint firstItem="gfi-Wd-4SX" firstAttribute="trailing" secondItem="1XM-lH-6FS" secondAttribute="trailing" constant="20" id="gVt-LZ-3Jp"/>
+                            <constraint firstItem="gfi-Wd-4SX" firstAttribute="trailing" secondItem="57M-rh-b82" secondAttribute="trailing" constant="20" id="r1Y-3A-JYR"/>
+                            <constraint firstItem="gfi-Wd-4SX" firstAttribute="trailing" secondItem="fRj-uu-epf" secondAttribute="trailing" constant="10" id="rVV-O1-2Ck"/>
+                            <constraint firstItem="m30-SG-kwb" firstAttribute="trailing" secondItem="gfi-Wd-4SX" secondAttribute="trailing" id="ses-E5-5ED"/>
+                            <constraint firstItem="fSI-Kn-FEH" firstAttribute="top" secondItem="fRj-uu-epf" secondAttribute="bottom" constant="10" id="wfm-vZ-qHs"/>
+                            <constraint firstItem="fSI-Kn-FEH" firstAttribute="leading" secondItem="gfi-Wd-4SX" secondAttribute="leading" constant="10" id="yam-mS-cY7"/>
+                            <constraint firstItem="m30-SG-kwb" firstAttribute="top" secondItem="57M-rh-b82" secondAttribute="bottom" constant="10" id="zi5-Qg-AAk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gfi-Wd-4SX"/>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="fSI-Kn-FEH" id="m4B-a0-bdt"/>
+                        <outlet property="commentTextField" destination="1XM-lH-6FS" id="id7-pd-7wr"/>
+                        <outlet property="tableView" destination="m30-SG-kwb" id="q1i-gA-uCU"/>
+                        <outlet property="titleLabel" destination="fRj-uu-epf" id="fhp-pG-S56"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jaj-Py-TTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750.7246376811595" y="-357.58928571428572"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AUv-df-xIs">
@@ -263,7 +351,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.dash" catalog="system" width="64" height="44"/>
-        <image name="pencil" catalog="system" width="64" height="58"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="plus.bubble.fill" catalog="system" width="64" height="54"/>
     </resources>
 </document>

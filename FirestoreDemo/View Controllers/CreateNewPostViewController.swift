@@ -7,6 +7,12 @@ class CreateNewPostViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bodyTextView.text = ""
+        bodyTextView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    }
+    
     // MARK: -IBActions
     
     @IBAction func submitPost(_ sender: UIButton) {
@@ -22,6 +28,9 @@ class CreateNewPostViewController: UIViewController {
         
         FirestoreService.manager.create(newPost) { [weak self] (result) in
             self?.handlePostResponse(withResult: result)
+            self?.tabBarController?.selectedIndex = 0
+            self?.bodyTextView.text = ""
+            self?.titleTextField.text = ""
         }
     }
     
@@ -42,10 +51,16 @@ class CreateNewPostViewController: UIViewController {
     
     private func titleIsValid() -> Bool {
         //TODO: Validate title
+        guard let title = titleTextField.text, !title.isEmpty else {
+            return false
+        }
         return true
     }
     private func bodyIsValid() -> Bool {
         //TODO: Validate body
+        guard let body = bodyTextView.text, !body.isEmpty else {
+            return false
+        }
         return true
     }
 }
