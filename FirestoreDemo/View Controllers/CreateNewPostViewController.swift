@@ -26,7 +26,7 @@ class CreateNewPostViewController: UIViewController {
         
         let newPost = Post(title: title, body: body, userUID: user.uid)
         
-        FirestoreService.manager.create(newPost) { [weak self] (result) in
+        FirestoreService.manager.createPost(newPost) { [weak self] (result) in
             self?.handlePostResponse(withResult: result)
             self?.tabBarController?.selectedIndex = 0
             self?.bodyTextView.text = ""
@@ -50,7 +50,6 @@ class CreateNewPostViewController: UIViewController {
     }
     
     private func titleIsValid() -> Bool {
-        //TODO: Validate title
         guard let title = titleTextField.text, !title.isEmpty else {
             return false
         }

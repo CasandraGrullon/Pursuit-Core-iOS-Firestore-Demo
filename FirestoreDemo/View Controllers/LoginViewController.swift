@@ -54,7 +54,7 @@ class LogInViewController: UIViewController {
     private func handleCreateUserResponse(withResult result: Result<User, Error>) {
         switch result {
         case let .success(user):
-            FirestoreService.manager.create(PersistedUser(from: user)) { [weak self] result in
+            FirestoreService.manager.createUser(PersistedUser(from: user)) { [weak self] result in
                 self?.handleCreateUserInDatabaseResponse(withResult: result)
             }
         case let .failure(error):
@@ -73,11 +73,14 @@ class LogInViewController: UIViewController {
     }
     
     private func handleInvalidFields() {
-        // TODO: Complete implementation
+       emailFieldIsValid()
     }
     
     private func emailFieldIsValid() -> Bool {
         // TODO: Complete implementation
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            return false
+        }
         return true
     }
     

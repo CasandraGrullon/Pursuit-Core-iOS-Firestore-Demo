@@ -14,6 +14,7 @@
 		C644BDAF241831500005871E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C644BDAE241831500005871E /* CommentCell.xib */; };
 		C644BDB1241831600005871E /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644BDB0241831600005871E /* CommentCell.swift */; };
 		C644BDB32418337A0005871E /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644BDB22418337A0005871E /* CommentsViewController.swift */; };
+		C6E38B27241ACA9700317D0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6E38B26241ACA9700317D0C /* GoogleService-Info.plist */; };
 		CD261C3D2375DBF700E08B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C3C2375DBF700E08B04 /* AppDelegate.swift */; };
 		CD261C3F2375DBF700E08B04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C3E2375DBF700E08B04 /* SceneDelegate.swift */; };
 		CD261C412375DBF700E08B04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C402375DBF700E08B04 /* LoginViewController.swift */; };
@@ -21,7 +22,6 @@
 		CD261C462375DBFC00E08B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD261C452375DBFC00E08B04 /* Assets.xcassets */; };
 		CD261C492375DBFC00E08B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD261C472375DBFC00E08B04 /* LaunchScreen.storyboard */; };
 		CD261C542375DBFD00E08B04 /* FirestoreDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C532375DBFD00E08B04 /* FirestoreDemoTests.swift */; };
-		CD261C5F2375DCFD00E08B04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD261C5E2375DCFD00E08B04 /* GoogleService-Info.plist */; };
 		CD261C612375DEB900E08B04 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C602375DEB900E08B04 /* FirebaseAuthService.swift */; };
 		CD261C632375E30300E08B04 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C622375E30300E08B04 /* PostsViewController.swift */; };
 		CD261C652375E31000E08B04 /* CreateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C642375E31000E08B04 /* CreateNewPostViewController.swift */; };
@@ -53,6 +53,7 @@
 		C644BDAE241831500005871E /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		C644BDB0241831600005871E /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		C644BDB22418337A0005871E /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		C6E38B26241ACA9700317D0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD261C392375DBF700E08B04 /* FirestoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirestoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD261C3C2375DBF700E08B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD261C3E2375DBF700E08B04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		CD261C4F2375DBFD00E08B04 /* FirestoreDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirestoreDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD261C532375DBFD00E08B04 /* FirestoreDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDemoTests.swift; sourceTree = "<group>"; };
 		CD261C552375DBFD00E08B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD261C5E2375DCFD00E08B04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD261C602375DEB900E08B04 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		CD261C622375E30300E08B04 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		CD261C642375E31000E08B04 /* CreateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPostViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				CD261C422375DBF700E08B04 /* Main.storyboard */,
 				CD261C472375DBFC00E08B04 /* LaunchScreen.storyboard */,
 				CD261C4A2375DBFC00E08B04 /* Info.plist */,
-				CD261C5E2375DCFD00E08B04 /* GoogleService-Info.plist */,
+				C6E38B26241ACA9700317D0C /* GoogleService-Info.plist */,
 			);
 			path = FirestoreDemo;
 			sourceTree = "<group>";
@@ -287,11 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD261C492375DBFC00E08B04 /* LaunchScreen.storyboard in Resources */,
-				CD261C5F2375DCFD00E08B04 /* GoogleService-Info.plist in Resources */,
 				C644BDAB241826510005871E /* PostCell.xib in Resources */,
 				C644BDAF241831500005871E /* CommentCell.xib in Resources */,
 				CD261C462375DBFC00E08B04 /* Assets.xcassets in Resources */,
 				CD261C442375DBF700E08B04 /* Main.storyboard in Resources */,
+				C6E38B27241ACA9700317D0C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +553,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pursuit.FirestoreDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = casandra.FirestoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -572,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pursuit.FirestoreDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = casandra.FirestoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

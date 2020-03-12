@@ -20,16 +20,17 @@ class PostCell: UITableViewCell {
     
     public func configureCell(post: Post) {
         //query user??
-        usernameLabel.text = getUserInfo(userID: post.uuid)
+        let userID = post.userUID
+        usernameLabel.text = getUserInfo(userID: userID)
         postTitleLabel.text = post.title
         postBodyLabel.text = post.body
         let date = Date()
         dateLabel.text = date.convertDate()
     }
-    public func getUserInfo(userID: String) {
+    public func getUserInfo(userID: String) -> String {
         let db = Firestore.firestore()
         let postsRef = db.collection("users")
-        
+        var email = String()
         postsRef.document(userID).getDocument { (snapshot , error) in
             if let error = error {
                 print("\(error)")
@@ -37,11 +38,14 @@ class PostCell: UITableViewCell {
                 guard let dictData = snapshot.data() else {
                     return
                 }
-                let user = PersistedUser(from: dictData)
-                self.usernameLabel.text = "POSTED BY: \(user.email ?? "Annonymos")"
-                print(user.email)
+                guard let user = PersistedUser(from: dictData), let userEmail = user.email else {
+                    return
+                }
+                email = userEmail
+                
             }
         }
+        return email
     }
 }
 extension Date {

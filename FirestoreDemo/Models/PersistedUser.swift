@@ -19,3 +19,16 @@ struct PersistedUser {
         ]
     }
 }
+extension PersistedUser {
+    init?(from dict: [String: Any]) {
+        guard let name = dict["name"] as? String,
+        let email = dict["email"] as? String,
+            let uid = dict["uid"] as? String else {
+                return nil
+        }
+        self.name = name
+        self.email = email
+        self.uid = uid
+    }
+
+}
