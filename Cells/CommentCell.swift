@@ -17,10 +17,16 @@ class CommentCell: UITableViewCell {
     
     @IBOutlet weak var commentLabel: UILabel!
     
-    public func configureCell(comment: Comment ) {
-        usernameLabel.text = comment.userId
-        let date = Date()
-        dateLabel.text = date.convertDate()
-        commentLabel.text = comment.comment
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, h:mm a"
+        return formatter
+    }()
+    
+    public func configureCell(comment: Comment) {
+        usernameLabel.text = comment.commentedBy
+        let date = comment.createdDate.dateValue()
+        dateLabel.text = dateFormatter.string(from: date)
+        commentLabel.text = comment.commentText
     }
 }

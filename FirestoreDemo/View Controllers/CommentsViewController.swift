@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CommentsViewController: UIViewController {
 
@@ -16,6 +17,14 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var post: Post?
+    var comments = [Comment]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    var fireService = FirestoreService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +37,26 @@ class CommentsViewController: UIViewController {
         titleLabel.text = post?.title
         bodyLabel.text = post?.body
     }
+    private func postComment(commentText: String) {
+        guard let post = post else {
+            return
+        }
+        fireService.createComment(post: post, comment: commentText) { (result) in
+            switch result {
+            case .failure(let error):
+                print("could not create comment \(error)")
+            case .success:
+                print("created a comment")
+            }
+        }
+
+    }
 
     @IBAction func addCommentButtonPressed(_ sender: UIButton) {
+        guard let commentText = commentTextField.text, !commentText.isEmpty else {
+            return
+        }
+        postComment(commentText: commentText)
+                
     }
 }

@@ -26,7 +26,7 @@ class CreateNewPostViewController: UIViewController {
         
         let newPost = Post(title: title, body: body, userUID: user.uid)
         
-        FirestoreService.manager.createPost(newPost) { [weak self] (result) in
+        FirestoreService.manager.createPost(post: newPost) { [weak self] (result) in
             self?.handlePostResponse(withResult: result)
             self?.tabBarController?.selectedIndex = 0
             self?.bodyTextView.text = ""

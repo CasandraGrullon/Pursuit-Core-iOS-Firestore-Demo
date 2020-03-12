@@ -7,44 +7,20 @@
 //
 
 import Foundation
+import Firebase
 
 struct Comment {
-    let userId: String
+    let commentText: String
+    let createdDate: Timestamp
     let postId: String
-    let comment: String
-    let datePosted: Date
-    let uuid: UUID
-
-    init(userId: String, postId: String, comment: String, datePosted: Date) {
-        self.userId = userId
-        self.postId = postId
-        self.comment = comment
-        self.datePosted = datePosted
-        self.uuid = UUID()
+    let commentedBy: String
+}
+extension Comment {
+    
+    init(_ dictionary: [String: Any]) {
+        self.commentText = dictionary["commentText"] as? String ?? "no comment text"
+        self.createdDate = dictionary["createdDate"] as? Timestamp ?? Timestamp(date: Date())
+        self.postId = dictionary["postId"] as? String ?? "no post id"
+        self.commentedBy = dictionary["commentedBy"] as? String ?? "no commenter name"
     }
-
-    init?(from dict: [String: Any], andUUID uuid: UUID) {
-        guard let userId = dict["userId"] as? String,
-            let postId = dict["postId"] as? String,
-        let comment = dict["comment"] as? String,
-            let datePosted = dict["datePosted"] as? Date else {
-                return nil
-        }
-        self.userId = userId
-        self.postId = postId
-        self.comment = comment
-        self.datePosted = datePosted
-        self.uuid = uuid
-    }
-    var uuidStr: String {
-        return uuid.uuidString
-    }
-    var fieldsDict: [String: Any] {
-        return [
-            "userId": userId,
-            "postId": postId,
-            "comment": comment
-        ]
-    }
-
 }

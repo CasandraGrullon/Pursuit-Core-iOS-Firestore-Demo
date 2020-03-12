@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class PostsViewController: UIViewController {
     
@@ -7,6 +9,7 @@ class PostsViewController: UIViewController {
     @IBOutlet var postsTableView: UITableView!
     
     // MARK: -Internal Properties
+    private var listener: ListenerRegistration?
     
     var posts = [Post]() {
         didSet {
@@ -27,6 +30,18 @@ class PostsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadPosts()
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        listener = Firestore.firestore().collection(FirestoreService.usersCollection).document(user.uid).collection(FirestoreService.postsCollection).addSnapshotListener({ (snapshot, error) in
+            if let error = error {
+                print("could not get posts \(error)")
+            } else if let snapshot = snapshot {
+                let posts = snapshot.documents.map {Post($0.data())}
+                self.posts = posts
+                
+            }
+        })
     }
     
     // MARK: - Private Methods

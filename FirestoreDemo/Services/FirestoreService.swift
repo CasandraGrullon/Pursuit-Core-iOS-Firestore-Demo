@@ -6,11 +6,14 @@ class FirestoreService {
     // MARK:- Static Properties
     
     static let manager = FirestoreService()
+    static let usersCollection = "users"
+    static let postsCollection = "posts"
+    static let commentsCollection = "comments"
     
     // MARK:- Internal Properties
     
     func getPosts(onCompletion: @escaping (Result<[Post], Error>) -> Void) {
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
+        db.collection(FirestoreService.postsCollection).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 onCompletion(.failure(err))
             } else {
@@ -24,7 +27,7 @@ class FirestoreService {
     }
     
     func createUser(_ user: PersistedUser, onCompletion: @escaping (Result<Void, Error>) -> Void) {
-        db.collection("users").document(user.uid).setData(user.fieldsDict) { err in
+        db.collection(FirestoreService.usersCollection).document(user.uid).setData(user.fieldsDict) { err in
             if let err = err {
                 onCompletion(.failure(err))
             } else {
@@ -33,23 +36,39 @@ class FirestoreService {
         }
     }
     
-    func createPost(_ post: Post, onCompletion: @escaping (Result<Void, Error>) -> Void) {
-        db.collection("posts").document(post.uuidStr).setData(post.fieldsDict) { err in
-            if let err = err {
-                onCompletion(.failure(err))
+    func createPost(post: Post, onCompletion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        let docRef = db.collection(FirestoreService.usersCollection).document(user.uid).collection(FirestoreService.postsCollection).document()
+        
+        db.collection(FirestoreService.usersCollection).document(user.uid).collection(FirestoreService.postsCollection).document(docRef.documentID).setData(post.fieldsDict) { (error) in
+            if let error = error {
+                onCompletion(.failure(error))
             } else {
                 onCompletion(.success(()))
             }
         }
+        
     }
-    func createComment(_ comment: Comment, onCompletion: @escaping (Result<Bool, Error>) -> Void ) {
-        db.collection("comments").document(comment.uuidStr).setData(comment.fieldsDict) { (error) in
+    func createComment(post: Post, comment: String ,onCompletion: @escaping (Result<Void, Error>) -> Void ) {
+       
+        guard let user = Auth.auth().currentUser, let email = user.email else {
+            return
+        }
+        let docRef = db.collection(FirestoreService.usersCollection).document(user.uid).collection(FirestoreService.postsCollection).document(post.uuidStr).collection(FirestoreService.commentsCollection).document()
+        
+        db.collection(FirestoreService.usersCollection).document(user.uid).collection(FirestoreService.postsCollection).document(post.uuidStr).collection(FirestoreService.commentsCollection).document(docRef.documentID).setData(["commentText": comment, "createdDate": Timestamp(date: Date()), "postId": post.uuidStr, "commentedBy": email]) { (error) in
             if let error = error {
                 onCompletion(.failure(error))
             } else {
-                onCompletion(.success(true))
+                onCompletion(.success(()))
             }
         }
+        
+        
     }
     
     // MARK:- Private Properties
