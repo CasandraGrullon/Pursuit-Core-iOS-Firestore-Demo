@@ -14,7 +14,6 @@
 		C644BDAF241831500005871E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C644BDAE241831500005871E /* CommentCell.xib */; };
 		C644BDB1241831600005871E /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644BDB0241831600005871E /* CommentCell.swift */; };
 		C644BDB32418337A0005871E /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644BDB22418337A0005871E /* CommentsViewController.swift */; };
-		C6E38B2B241AD02C00317D0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6E38B2A241AD02C00317D0C /* GoogleService-Info.plist */; };
 		CD261C3D2375DBF700E08B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C3C2375DBF700E08B04 /* AppDelegate.swift */; };
 		CD261C3F2375DBF700E08B04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C3E2375DBF700E08B04 /* SceneDelegate.swift */; };
 		CD261C412375DBF700E08B04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261C402375DBF700E08B04 /* LoginViewController.swift */; };
@@ -53,7 +52,6 @@
 		C644BDAE241831500005871E /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		C644BDB0241831600005871E /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		C644BDB22418337A0005871E /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
-		C6E38B2A241AD02C00317D0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD261C392375DBF700E08B04 /* FirestoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirestoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD261C3C2375DBF700E08B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD261C3E2375DBF700E08B04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				CD261C422375DBF700E08B04 /* Main.storyboard */,
 				CD261C472375DBFC00E08B04 /* LaunchScreen.storyboard */,
 				CD261C4A2375DBFC00E08B04 /* Info.plist */,
-				C6E38B2A241AD02C00317D0C /* GoogleService-Info.plist */,
 			);
 			path = FirestoreDemo;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 				C644BDAF241831500005871E /* CommentCell.xib in Resources */,
 				CD261C462375DBFC00E08B04 /* Assets.xcassets in Resources */,
 				CD261C442375DBF700E08B04 /* Main.storyboard in Resources */,
-				C6E38B2B241AD02C00317D0C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
